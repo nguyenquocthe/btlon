@@ -1,0 +1,7 @@
+
+- Import csdl qlthuvien.sql.
+
+- Truy c?p   http://localhost:8080/phech/code/login.php
+- Tài kho?n dang nh?p admin m?c d?nh nh?p luu dang nh?p d? luu phiên dang nh?p: nguyenthe/123456
+
+
