@@ -39,7 +39,7 @@ else{
    <div class="table-responsive" >
     <div style="float: left ; margin-bottom: 10px">
       
-     <button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning"  style="padding: 10px; background-color: blue; width: 70px " >Add</button> 
+     <button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button> 
 
      <input style="float: right;width: 300px; margin-left: 800px" class="form-control" id="myInput" type="text" placeholder="Search.."> 
     
@@ -78,7 +78,7 @@ else{
           <td><?php echo $row['giamuon'] ?></td>
            <td><?php echo $row['soluong'] ?></td>
             <td><?php echo $row['soluongcon'] ?></td>
-       <td><input type="button" name="view" value="view" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data" /> <input type="button" name="delete" value="delete" id=f"<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
+       <td><input type="button" name="view" value="view" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data" /> <input type="button" name="delete" value="delete" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
         <!-- <input type="button" name="update" value="update" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data'" /> -->
         <input type="button" name="view" value="update" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs update_data" />
       
