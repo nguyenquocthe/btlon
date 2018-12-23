@@ -31,11 +31,6 @@ if(isset($_POST["employee_id"]))
             <td width="30%"><label>Giá</label></td>  
             <td width="70%">'.$row["gia"].'</td>  
         </tr>
-        <tr>  
-            <td width="30%"><label>
-            Giá mượn</label></td>  
-            <td width="70%">'.$row["giamuon"].'</td>  
-        </tr>
          <tr>  
             <td width="30%"><label>Số lượng</label></td>  
             <td width="70%">'.$row["soluong"].'</td>  

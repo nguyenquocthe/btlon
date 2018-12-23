@@ -6,16 +6,20 @@ $tg=$_POST['tacgia'];
 $ha=$_POST['hinhanh'];
 $mt=$_POST['mota'];
 $g=$_POST['gia'];
-$gm=$_POST['giamuon'];
 $sl=$_POST['soluong'];
 $slc=$_POST['soluongcon'];
 include("../config.php");
 
 $sql="UPDATE sach
-SET tensach = '$ts', id_loaisach = '$ls',id_tacgia = '$tg', urlhinh = '$ha' ,mota = '$mt', gia = '$g',giamuon = '$gm', soluong = '$sl',soluongcon = '$slc'
+SET tensach = '$ts', id_loaisach = '$ls',id_tacgia = '$tg', urlhinh = '$ha' ,mota = '$mt', gia = '$g', soluong = '$sl',soluongcon = '$slc'
 WHERE id_sach= '$id'";
 $result=mysqli_query($conn,$sql);
 if($result){
 	header("location:dssach.php");
 }
+else{
+	die("câu lệnh bị lỗi");
+}
 ?>
+
+

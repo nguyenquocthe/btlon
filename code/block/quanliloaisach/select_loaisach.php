@@ -14,7 +14,10 @@ if(isset($_POST["employee_id"]))
     {
      $output .= '
   
-        
+        <tr>  
+            <td width="30%"><label>Tên Sách</label></td>  
+            <td width="70%">'.$row["id_loaisach"].'</td>  
+        </tr>
      <tr>  
             <td width="30%"><label>Tên Sách</label></td>  
             <td width="70%">'.$row["tenloaisach"].'</td>  

@@ -12,6 +12,10 @@ if(isset($_POST["employee_id"]))
     while($row = mysqli_fetch_array($result))
     {
      $output .= '
+     <tr>  
+            <td width="30%"><label>Mã tác giả </label></td>  
+            <td width="70%">'.$row["id_tacgia"].'</td>  
+        </tr>
         
      <tr>  
             <td width="30%"><label>Tên Tác Giả </label></td>  

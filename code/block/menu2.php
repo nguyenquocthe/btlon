@@ -57,10 +57,11 @@ li.dropdown12 {
 </style>
 </head>
 <body >
-<div style="margin: 16px; margin-top: 0px">
+<div style="margin: 16px; margin-top: 0px ; margin-bottom: 0px">
 <ul>
   <li ><a href="#home"><i class="fa fa-fw fa-home"></i>Home</a></li>
   <li><a href="http://localhost:8080/phech/code/index.php">Trang Chủ</a></li>
+  <li><a href="http://localhost:8080/phech/code/index.php">Quản Lí Nhân Sự</a></li>
   <li class="dropdown12">
     <a href="javascript:void(0)" class="dropbtn12">Quản Lí Sách</a>
     <div class="dropdown-content12">

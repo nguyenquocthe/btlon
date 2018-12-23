@@ -49,8 +49,8 @@ else{
      <table class="table table-bordered">
       <tr>
        <th >STT</th>  
-       <th >Tên Loại Sách</th>
-       
+       <th>Mã loại sách</th>
+       <th >Tên Loại Sách</th>     
         <th>Thao Tác</th>
       </tr>
       <tbody id="myTable">
@@ -66,6 +66,7 @@ else{
       ?>
       <tr>
        <td><?php echo $stt ?></td>
+      <td><?php echo $row['id_loaisach'] ?></td>
        <td><?php echo $row['tenloaisach'] ?></td>
        <td><input type="button" name="view" value="view" id="<?php echo $row["id_loaisach"]; ?>" class="btn btn-info btn-xs view_data" /> <input type="button" name="delete" value="delete" id="<?php echo $row["id_loaisach"]; ?>" class="btn btn-info btn-xs delete_sach"  data-toggle="modal" data-target="#myModal" />
         
@@ -110,6 +111,10 @@ else{
    </div>
    <div class="modal-body">
     <form method="post" id="insert_form">
+       <label>Mã loại Sách</label>
+     <input type="text" name="id_loaisach" id="loaisach" class="form-control" />
+     
+     <br />
      <label>Tên Loại Sách</label>
      <input type="text" name="name" id="name" class="form-control" />
      

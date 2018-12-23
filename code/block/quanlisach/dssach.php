@@ -53,7 +53,6 @@ else{
         <th >loai sach</th>  
        <th >Tác Giả</th>
         <th >Giá</th>  
-       <th>Giá Mượn</th>
         <th >Số Lượng</th>  
        <th >SL còn</th>
        <th>Thao Tac</th>
@@ -75,7 +74,6 @@ else{
        <td><?php echo $row['id_loaisach'] ?></td>
         <td><?php echo $row['id_tacgia'] ?></td>
          <td><?php echo $row['gia'] ?></td>
-          <td><?php echo $row['giamuon'] ?></td>
            <td><?php echo $row['soluong'] ?></td>
             <td><?php echo $row['soluongcon'] ?></td>
        <td><input type="button" name="view" value="view" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data" /> <input type="button" name="delete" value="delete" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
@@ -121,6 +119,9 @@ else{
    </div>
    <div class="modal-body">
     <form method="post" id="insert_form">
+        <label>Mã Sách</label>
+     <input type="text" name="id_sach" id="id_sach" class="form-control" />
+     <br />
      <label>Tên Sách</label>
      <input type="text" name="name" id="name" class="form-control" />
      <br />
@@ -139,9 +140,7 @@ else{
      <br />
        <label>giá</label>
       <input type="te" name="gia" id="gia" class="form-control"></input>
-     <br />
-         <label>giá mượn</label>
-      <input type="te" name="giamon" id="giamuon" class="form-control"></input>
+     
      <br />
          <label>số lượng</label>
       <input type="te" name="soluong" id="soluong" class="form-control"></input>
@@ -288,7 +287,11 @@ $(document).ready(function(){
    success:function(data){
     $('#employee_detail_sua').html(data);
     $('#dataModal_sua').modal('show');
-   }
+   },
+  
+   error: function(){
+    alert('error!');
+  }
   });
  });
 

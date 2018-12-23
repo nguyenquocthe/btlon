@@ -49,6 +49,7 @@ else{
      <table class="table table-bordered">
       <tr>
        <th >STT</th>  
+       <th>Mã Tác Giả</th>
        <th >Họ và Tên</th>
         <th >Năm Sinh</th>  
        <th >Quê Quán</th>
@@ -68,6 +69,7 @@ else{
       ?>
       <tr>
        <td><?php echo $stt ?></td>
+       <td><?php echo $row['id_tacgia'] ?></td>
        <td><?php echo $row['hotentg'] ?></td>
        <td><?php echo $row['namsinh'] ?></td>
         <td><?php echo $row['quequan'] ?></td>
@@ -107,7 +109,7 @@ else{
 
 <div id="add_data_Modal" class="modal fade">
  <div class="modal-dialog" >
-  <div class="modal-content" >
+  <div class="modal-content"  >
    <div class="modal-header">
      <h4 >Thêm Tác Giả</h4>
     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -115,11 +117,14 @@ else{
    </div>
    <div class="modal-body">
     <form method="post" id="insert_form">
+      <label>Mã tác giả</label>
+     <input type="text" name="id_tacgia" id="tacgia" class="form-control" />
+     <br />
      <label>Họ và Tên</label>
      <input type="text" name="name" id="name" class="form-control" />
      <br />
      <label>Năm Sinh</label>
-     <input type="text" name="namsinh" id="namsinh" class="form-control"></intput>
+     <input type="date" name="namsinh" id="namsinh" class="form-control"></intput>
      <br />
      <label>Quê Quán</label>
       <input type="text" name="quequan" id="quequan" class="form-control"></input>
@@ -134,7 +139,7 @@ else{
     </form>
    </div>
    <div>
-    <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="float :right ; margin-top: -60px;margin-right: 30px">Close</button>
    </div>
   </div>
  </div>

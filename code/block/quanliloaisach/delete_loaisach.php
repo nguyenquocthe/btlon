@@ -3,10 +3,11 @@
 if(isset($_POST["employee_id"]))
 {
  include("../config.php");
+ $sql="delete FROM  sach WHERE id_loaisach = '".$_POST["employee_id"]."'";
+ $result1=mysqli_query($conn,$sql);
  $query = "delete FROM  loaisach WHERE id_loaisach = '".$_POST["employee_id"]."'";
- $result = mysqli_query($conn, $query);
+ $result2 = mysqli_query($conn, $query);
 }
-
 ?>
 <!DOCTYPE html>
 <html>

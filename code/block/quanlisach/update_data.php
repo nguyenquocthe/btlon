@@ -28,9 +28,7 @@ if(isset($_POST["employee_id"]))
      <br />
        <label>giá</label>
       <input type="te" name="gia" id="gia" class="form-control"  value="<?php echo $row['gia'] ?>" ></input>
-     <br />
-         <label>giá mượn</label>
-      <input type="te" name="giamuon" id="giamuon" class="form-control"  value="<?php echo $row['giamuon'] ?>" ></input>
+    
      <br />
          <label>số lượng</label>
       <input type="te" name="soluong" id="soluong" class="form-control"  value="<?php echo $row['soluong'] ?>" ></input>

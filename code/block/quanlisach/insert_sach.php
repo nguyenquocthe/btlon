@@ -4,22 +4,20 @@
 include("../config.php");
 if(!empty($_POST))
 {
-    $name = mysqli_real_escape_string($conn, $_POST["name"]);  
-    $loaisach = mysqli_real_escape_string($conn, $_POST["loaisach"]);  
-    $tacgia = mysqli_real_escape_string($conn, $_POST["tacgia"]);  
-    $hanh = mysqli_real_escape_string($conn, $_POST["hinhanh"]);  
-    $mota = mysqli_real_escape_string($conn, $_POST["mota"]);
-    $gia = mysqli_real_escape_string($conn, $_POST["gia"]);  
-    $giam = mysqli_real_escape_string($conn, $_POST["giamuon"]);  
-    $sl = mysqli_real_escape_string($conn, $_POST["soluong"]);
-    $slc = mysqli_real_escape_string($conn, $_POST["soluongcon"]);
+    $id_sach = $_POST["id_sach"]; 
+    $name = $_POST["name"];  
+    $loaisach = $_POST["loaisach"];  
+    $tacgia =  $_POST["tacgia"];  
+    $hanh = $_POST["hinhanh"];  
+    $mota =  $_POST["mota"];
+    $gia = $_POST["gia"];  
+     
+    $sl =$_POST["soluong"];
+    $slc =$_POST["soluongcon"];
     $query = "
-    INSERT INTO sach(tensach, id_loaisach, id_tacgia, urlhinh, mota,gia,giamuon,soluong,soluongcon)  
-     VALUES('$name', '$loaisach', '$tacgia', '$hanh', '$mota','$gia','$giam','$sl','$slc')
+    INSERT INTO sach(id_sach,tensach, id_loaisach, id_tacgia, urlhinh, mota,gia,soluong,soluongcon)  
+     VALUES('$id_sach','$name', '$loaisach', '$tacgia', '$hanh', '$mota','$gia','$sl','$slc')
     ";
     $qr=mysqli_query($conn,$query);
-    // if($qr){
-    //     header("location:dssach.php");
-    // } 
 }
 ?>
