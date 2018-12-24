@@ -61,7 +61,8 @@ li.dropdown12 {
 <ul>
   <li ><a href="#home"><i class="fa fa-fw fa-home"></i>Home</a></li>
   <li><a href="http://localhost:8080/phech/code/index.php">Trang Chủ</a></li>
-  <li><a href="http://localhost:8080/phech/code/index.php">Quản Lí Nhân Sự</a></li>
+  <li><a href="http://localhost:8080/phech/code/block/quanlinhansu/nhansu.php">Quản Lí Nhân Sự</a></li>
+  <li><a href="http://localhost:8080/phech/code/block/quanlidocgia/docgia.php">Quản Lí Độc Giả</a></li>
   <li class="dropdown12">
     <a href="javascript:void(0)" class="dropbtn12">Quản Lí Sách</a>
     <div class="dropdown-content12">

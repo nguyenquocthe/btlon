@@ -11,15 +11,15 @@
 }
 .danhmuc{
    float: left;
-   border: 1px solid black;
+
    width: 25%;
-   height: 500px;
+   height: 350px;
    margin: 10px;
    background-color: white;
 }
 .noidung{
    float: left;
-   border: 1px solid black;
+
    width: 70%;
    
    margin: 10px;
@@ -51,4 +51,14 @@ img:hover {
 	/*border: 1px solid  #94b8b8;*/
 	z-index: 10px;
    box-shadow: 5px 5px 5px #666;
+}
+.docgia {
+     float: left;
+
+   width: 94%;
+     margin: 10px;
+   margin-left: 40px;
+   
+ 
+   background-color: white;
 }

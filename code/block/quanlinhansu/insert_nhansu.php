@@ -18,6 +18,7 @@ $resualt=mysqli_query($conn,$sql);
 if($resualt){
     header("location:nhansu.php");
 }
+
 }
 
 ?>
