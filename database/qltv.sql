@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2018 at 04:16 PM
+-- Generation Time: Dec 24, 2018 at 05:42 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -29,12 +29,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chitietphieumuon` (
-  `mapm` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_sach` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mapm` int(10) DEFAULT NULL,
+  `id_sach` char(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ngaymuon` date DEFAULT NULL,
-  `ngaytra` date DEFAULT NULL,
-  `trangthailm` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `henngaytra` date DEFAULT NULL,
+  `trangthailm` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chitietphieumuon`
+--
+
+INSERT INTO `chitietphieumuon` (`mapm`, `id_sach`, `ngaymuon`, `henngaytra`, `trangthailm`) VALUES
+(1, 's2', '2018-12-03', '2018-12-26', 'tốt'),
+(1, 's3', '2018-12-10', '2018-12-26', 'tốt'),
+(3, 's5', '2018-12-03', '2018-12-27', 'tốt'),
+(7, 's3', '2018-12-10', '2018-12-04', 'bình thường'),
+(9, 's6', '2018-12-19', '2018-12-04', 'tot'),
+(2, 's3', '2018-12-26', '2018-12-31', 'tốt');
 
 -- --------------------------------------------------------
 
@@ -48,18 +60,28 @@ CREATE TABLE `docgia` (
   `diachi` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ngaysinh` date DEFAULT NULL,
   `gioitinh` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hansudung` date DEFAULT NULL
+  `hansudung` date DEFAULT NULL,
+  `urlhinh` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gmail` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sdt` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `docgia`
 --
 
-INSERT INTO `docgia` (`madg`, `hotendg`, `diachi`, `ngaysinh`, `gioitinh`, `hansudung`) VALUES
-('dg1', 'nguyễn văn thuyên', 'thanh hóa', '2018-12-18', 'nam', '2018-12-27'),
-('dg2', 'trương thanh thiện', 'hà nooij', '2018-12-11', 'nam', '2018-12-25'),
-('dg3', 'trần văn tiến', 'nghệ an', '2018-12-18', 'nam', '2018-12-27'),
-('dg4', 'nguyên văn thi', 'nam định', '2018-12-19', 'nam', '2018-12-25');
+INSERT INTO `docgia` (`madg`, `hotendg`, `diachi`, `ngaysinh`, `gioitinh`, `hansudung`, `urlhinh`, `gmail`, `sdt`) VALUES
+('dg1', 'nguyễn văn thuyên', 'thanh hóa', '2018-12-18', 'nam', '2018-12-27', 'dg1.jpg', 'vanthuyen@gmail.com', 23456),
+('dg10', 'nguyễn VĂn D', 'nam định', '2018-12-13', 'nam', '2018-12-25', 'dg10.jpg', 'vanD@gmail.com', 3232535),
+('dg12', 'Nguyễn Quốc ', 'nam dijnh', '2018-12-08', 'nam', '0000-00-00', 'dg12.jpg', 'nguyenthe@gmail.com', 182828282),
+('dg13', 'thế', 'ha noi', '2018-11-29', 'nam', '0000-00-00', 'dg12.jpg', 'nguyenthe@gmail.com', 182828282),
+('dg14', 'đời sốn', 'ha noi', '2018-12-07', 'nam', '0000-00-00', 'dg12.jpg', 'nguyenthe@gmail.com', 182828282),
+('dg2', 'trương thanh thiện', 'hà nooij', '2018-12-11', 'nam', '2018-12-25', 'dg2.jpg', 'thanhthien@gmail.com', 123456),
+('dg20', 'ngueyxxnnx', 'nam dinh', '2018-12-09', 'nam', '0000-00-00', 'dg10.jpg', 'nguyenthe@gmauil.com', 12234),
+('dg3', 'trần văn tiến', 'nghệ an', '2018-12-18', 'nam', '2018-12-27', 'dg3.jpg', 'vantien@gmail.com', 234567),
+('dg30', 'nguyenx van B', 'hà nội', '2018-12-01', 'nam', '0000-00-00', 'dg3.jpg', 'abc#gmail.com', 102092922),
+('dg4', 'nguyên văn ', 'nam định', '2018-12-19', 'nam', '2018-12-25', 'dg4.jpg', 'vanthi@gmail.com', 345678),
+('madg2', 'ngueyxxnnx', 'nam dinh', '2018-12-09', 'nam', '0000-00-00', 'dg10.jpg', 'nguyenthe@gmauil.com', 12234);
 
 -- --------------------------------------------------------
 
@@ -126,13 +148,13 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`manv`, `id_user`, `hotennv`, `diachi`, `ngaysinh`, `gioitinh`, `sdt`, `urlhinh`, `chucvu`, `gmail`) VALUES
-('', 'nd1', 'the', 'hà nội', '0000-00-00', 'nam', 182828282, 'nv8.jpg', 'nhân viên', 'nguyenthe@gmail.com'),
 ('nv1', 'nd1', 'nguyễn thanh ', 'hà nọi', '2018-12-10', 'nam', 917383, 'nv1.jpg', 'nhân viên', 'thanhtung@gmail.com'),
 ('nv10', 'nd2', 'đời sốn', 'hà nội', '0000-00-00', 'nam', 182828282, 'nv8.jpg', 'nhân viên', 'nguyenthe@gmail.com'),
 ('nv11', 'nd1', 'đời sốn', 'ha noi', '0000-00-00', 'nam', 182828282, 'nv8.jpg', 'nhân viên', 'nguyenthe@gmail.com'),
 ('nv12', 'nd1', 'nguyễn thị hoài', 'ha noi', '0000-00-00', 'nam', 182828282, 'nv9.jpg', 'nhân viên', 'nguyenthe@gmail.com'),
 ('nv13', 'nd1', 'đời sốn', 'ha noi', '0000-00-00', 'nam', 182828282, 'nv8.jpg', 'nhân viên', 'nguyenthe@gmail.com'),
 ('nv14', 'nd2', 'Nguyễn Văn A', 'ha noi', '0000-00-00', 'nam', 182828282, 'nv2.jpg', 'trưởng phòng', 'nguyenthe@gmail.com'),
+('nv15', 'nd1', 'Nguyễn Văn Tú', 'ha noi', '0000-00-00', 'nam', 182828282, 'nv9.jpg', 'bảo vệ', 'nguyenthe@gmail.com'),
 ('nv2', 'nd2', 'nguyễn văn tôn', 'hà nội', '2018-12-12', 'nam', 3232535, 'nv2.jpg', 'Kế Toán', 'thanhton@gmail.com'),
 ('nv3', 'nd1', 'nguyễn văn thời', 'nam định', '2018-12-17', 'nam', 3232535, 'nv3.jpg', 'nhân viên', 'vanthoi@gmail.com');
 
@@ -143,10 +165,32 @@ INSERT INTO `nhanvien` (`manv`, `id_user`, `hotennv`, `diachi`, `ngaysinh`, `gio
 --
 
 CREATE TABLE `phieumuon` (
-  `mapm` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mapm` int(10) NOT NULL,
   `madg` char(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `manv` char(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `phieumuon`
+--
+
+INSERT INTO `phieumuon` (`mapm`, `madg`, `manv`) VALUES
+(1, 'dg1', 'nv1'),
+(2, 'dg30', 'nv12'),
+(3, 'dg2', 'nv12'),
+(4, 'dg30', 'nv3'),
+(5, 'dg1', 'nv2'),
+(6, 'dg3', 'nv3'),
+(7, 'dg2', 'nv2'),
+(8, 'dg2', 'nv10'),
+(9, 'dg2', 'nv10'),
+(10, 'dg3', 'nv1'),
+(11, 'dg3', 'nv12'),
+(12, 'dg1', 'nv2'),
+(13, 'dg12', 'nv3'),
+(14, 'dg13', 'nv1'),
+(15, 'dg12', 'nv1'),
+(16, 'dg10', 'nv1');
 
 -- --------------------------------------------------------
 
@@ -155,10 +199,10 @@ CREATE TABLE `phieumuon` (
 --
 
 CREATE TABLE `phieutra` (
-  `mapc` char(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mapm` char(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mapt` int(10) DEFAULT NULL,
+  `mapm` int(10) DEFAULT NULL,
   `ngaytra` date DEFAULT NULL,
-  `tinhtrangsc` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `tinhtranglt` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -186,7 +230,10 @@ CREATE TABLE `sach` (
 INSERT INTO `sach` (`id_sach`, `tensach`, `id_loaisach`, `id_tacgia`, `urlhinh`, `mota`, `gia`, `soluong`, `soluongcon`) VALUES
 ('s1', 'Văn Học Cổ Điển', 'ls3', 'tg3', 'anh5.jpg', 'Trẻ ăn mặc tự do, nhốn nháo, bố mẹ đứng lẫn với con\", chị Sơn kể về khai giảng chớp nhoáng của con trai tại một trường Mỹ.', 2345, 1234, 12),
 ('s11', 'đời sốn', 'ls3', 'tg3', 'anh2.jpg', 'Trẻ ăn mặc tự do, nhốn nháo, bố mẹ đứng lẫn với con\", chị Sơn kể về khai giảng chớp nhoáng của con trai tại một trường Mỹ.', 2345, 1234, 12),
-('s2', 'khoa học', 'ls3', 'tg4', 'anh6.jpg', 'Trẻ ăn mặc tự do, nhốn nháo, bố mẹ đứng lẫn với con\", chị Sơn kể về khai giảng chớp nhoáng của con trai tại một trường Mỹ.', 2345, 1234, 12);
+('s2', 'khoa học', 'ls3', 'tg4', 'anh6.jpg', 'Trẻ ăn mặc tự do, nhốn nháo, bố mẹ đứng lẫn với con\", chị Sơn kể về khai giảng chớp nhoáng của con trai tại một trường Mỹ.', 2345, 1234, 12),
+('s3', 'Văn Học', 'ls2', 'tg3', 'anh2.jpg', 'Thứ trưởng Bộ Văn hóa-Thể thao và Du lịch bị người từ phía sau vượt lên mắng khi bà dừng xe trước đèn đỏ.', 2333, 1222, 122),
+('s5', 'NHân Văn', 'ls3', 'tg4', 'anh6.jpg', 'Thứ trưởng Bộ Văn hóa-Thể thao và Du lịch bị người từ phía sau vượt lên mắng khi bà dừng xe trước đèn đỏ.', 3000, 299, 12),
+('s6', 'sach cổ điển', 'ls4', 'tg4', 'anh7.jpg', 'Thứ trưởng Bộ Văn hóa-Thể thao và Du lịch bị người từ phía sau vượt lên mắng khi bà dừng xe trước đèn đỏ.', 2900, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -221,7 +268,7 @@ INSERT INTO `tacgia` (`id_tacgia`, `hotentg`, `namsinh`, `quequan`, `sdt`) VALUE
 -- Indexes for table `chitietphieumuon`
 --
 ALTER TABLE `chitietphieumuon`
-  ADD PRIMARY KEY (`mapm`,`id_sach`),
+  ADD KEY `mapm` (`mapm`),
   ADD KEY `id_sach` (`id_sach`);
 
 --
@@ -261,7 +308,6 @@ ALTER TABLE `phieumuon`
 -- Indexes for table `phieutra`
 --
 ALTER TABLE `phieutra`
-  ADD PRIMARY KEY (`mapc`),
   ADD KEY `mapm` (`mapm`);
 
 --

@@ -187,9 +187,7 @@ while ($row=mysqli_fetch_array($resualt)) {
   </div>
  </div>
 </div>
-<div id="abc">hdsfgshf</div>
 <script type="text/javascript">
-
 
 $(document).ready(function(){
 

@@ -71,6 +71,14 @@ li.dropdown12 {
       <a href="http://localhost:8080/phech/code/block/quanliloaisach/dsloaisach.php">Danh Sách Thể Loại</a>
     </div>
   </li>
+    <li class="dropdown12">
+    <a href="javascript:void(0)" class="dropbtn12">Quản Lí Mượn Trả Sách</a>
+    <div class="dropdown-content12">
+      <a href="http://localhost:8080/phech/code/block/quanlimuonsach/muonsach.php">Danh Sách phiếu Mượn</a>
+      <a href="">Danh Sách Phiếu Trả</a>
+      <a href="">Danh Sách Phạt</a>
+    </div>
+  </li>
 </ul>
 </div>
 
