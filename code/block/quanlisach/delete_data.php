@@ -8,23 +8,4 @@ if(isset($_POST["employee_id"]))
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <script type="text/javascript">
-        <?php 
-    if($result){
-        ?>
-        alert("xóa thanh cong");
-     <?php   
-      }
-     ?>
-    </script>
-    
-
-</body>
-</html>
 

@@ -149,11 +149,11 @@ else{
       <input type="te" name="soluongcon" id="soluongcon" class="form-control"></input>
      <br />
      <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
-
+ <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
     </form>
    </div>
    <div>
-    <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
+   
    </div>
   </div>
  </div>
@@ -252,11 +252,18 @@ $(document).ready(function(){
     //  $('#insert').val("Inserting");  
     // },  
     success:function(data){  
-    // $('#insert_form')[0].reset();  
-     $('#add_data_Modal').modal('hide');  
-     $('#employee_table').html(data); 
-     //$('#abc').load("dssach.php") ;
+    // $('#insert_form')[0].reset();
+     if(data==='lol'){
+      alert("Loi");
+     }  
+     else{
+        $('#add_data_Modal').modal('hide');  
+     $('#employee_table').html(data);
      location.reload();
+     }
+    
+
+     //$('#abc').load("dssach.php") ;
     }  
    });  
   }  

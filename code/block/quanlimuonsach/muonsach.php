@@ -73,7 +73,8 @@ else{
         <!-- <input type="button" name="update" value="update" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data'" /> -->
         <input type="button" name="view" value="Sửa" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs update_data" />
         <input type="button" name="view" value="Xem Ctpm" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs view_data" />
-          <input type="button" name="muonsach" value="Mượn Sách" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs " />
+
+          <input type="button" name="muonsach" value="Mượn Sách" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs  " data-toggle="modal" data-target="#add_data_Modal_muon"   />
       
          </td>
       </tr>
@@ -163,6 +164,80 @@ else{
  </div>
 </div>
 
+
+
+<div id="add_data_Modal_muon" class="modal fade">
+ <div class="modal-dialog" >
+  <div class="modal-content" >
+   <div class="modal-header">
+   
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <h4 >Mượn Sách</h4>
+    
+   </div>
+   <div class="modal-body">
+    <form method="POST" id="insert_form_muon">
+        <label>Mã pm</label>
+      <?php
+      $sql="select mapm from phieumuon ORDER by mapm DESC LIMIT 0,1";
+      $re=mysqli_query($conn,$sql);
+      $r=mysqli_fetch_array($re);
+      ?>
+     <input type="text" name="mapm" id="mapm" class="form-control" value="<?php echo $r['mapm']?>" />
+     <br />
+     <label>MÃ Sách</label>
+     <!-- <input type="text" name="docgia" id="docgia" class="form-control" /> -->
+     <select class=" form-control" name="masach" id="masach">
+       <option>Chọn Mã Sách...</option>
+       <?php
+          $sql="select *from sach";
+          $kq=mysqli_query($conn,$sql);
+          while ($row=mysqli_fetch_array($kq)) {
+          ?>
+          <option><?php echo $row['id_sach']; ?></option>
+          <?php
+          }
+       ?>
+     </select>
+     <br />
+     <label>Ngày Mượn </label>
+     <!-- value="<?php echo date("d/m/Y") ?>" -->
+      <input type="date" name="ngaymuon" id ="ngaymuon"  class="form-control">
+     <br />
+
+      <label>Hẹn Ngày Mượn </label>
+      <input type="date" name="henngaymuon" id ="henngaymuon"  class="form-control">
+     <br />
+      <label>Trạng thái</label>
+     <!-- <input type="text" name="docgia" id="docgia" class="form-control" /> -->
+     <select class=" form-control" name="trangthai" id="trangthai">
+       <option>Vẫn Tốt</option>
+      <option>Bình Thường</option>
+        <option>Đã Cũ</option>
+      
+     </select>
+    <br>
+     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+
+      <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;background-color: #ffff66">Kết Thúc Giao dịch</button>
+    </form>
+    <div id="table_ctpm">
+      
+    </div>
+
+   </div>
+   <div>
+
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+
+
 <div id="dataModal" class="modal fade">
  <div class="modal-dialog">
   <div class="modal-content">
@@ -179,6 +254,25 @@ else{
   </div>
  </div>
 </div>
+
+
+<div id="dataModal_muonsach" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Chi Tiết Phiếu Mượn</h4>
+   </div>
+   <div class="modal-body" id="employee_detail_muonsach">
+    
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
+  </div>
+ </div>
+</div>
+
 
 
 <div id="dataModal_sua" class="modal fade">
@@ -266,6 +360,54 @@ $(document).ready(function(){
   }  
  });
 
+
+
+ $('#insert_form_muon').on("submit", function(event){  
+  event.preventDefault();  
+  if($('#mapm').val() == "")  
+  {  
+   alert("mã không đk để Trống ");  
+  }  
+  else if($('#masach').val() == '')  
+  {
+
+   alert("Mã Sách K=không đk để trống ");  
+  }  
+  else if($('#ngaymuon').val() == '')
+  {  
+   alert("Ngày Mượn Không đk để trống ");  
+  }
+   
+  else  
+  {  
+   $.ajax({  
+    url:"insert_chitietphieumuon.php",  
+    method:"POST",  
+    data:$('#insert_form_muon').serialize(),    
+    success:function(data){  
+      if(data==='loi'){
+        alert("lỗi");
+      }
+      else if(data==='loi update'){
+        alert("lỗi update");
+      }
+      else{
+        alert('muon thanh công');
+        $("#table_ctpm").html(data);
+
+       $('#insert_form_muon')[0].reset();  
+    // $('#add_data_Modal').modal('hide');  
+    // $('#employee_table').html(data); 
+        // $('#add_data_Modal').modal('hide');  
+     
+     //location.reload();
+      };
+ 
+    }  
+   });  
+  }  
+ });
+
  $(document).on('click', '.view_data', function(){
   //$('#dataModal').modal();
   var employee_id = $(this).attr("id");
@@ -278,6 +420,22 @@ $(document).ready(function(){
     $('#dataModal').modal('show');
    }
   });
+ });
+
+  $(document).on('click', '.muonsach', function(){
+
+  var employee_id = $(this).attr("id");
+  $.ajax({
+   url:"bang_muonsach.php",
+   method:"POST",
+   data:{employee_id:employee_id},
+   success:function(data){
+
+    $('#employee_detail_muonsach').html(data);
+    $('#dataModal_muonsach').modal('show');
+   }
+  });
+
  });
 
 
@@ -312,6 +470,33 @@ $(document).ready(function(){
     location.reload();
    }
   });
+ });
+
+   $(document).on('click', '.delete_data_ctpm', function(){
+ 
+  var employee_id = $(this).attr("id");
+  var employee_name = $(this).attr("name");
+  $.ajax({
+   url:"delete_chitietphieumuon.php",
+   method:"POST",
+   data:{employee_id:employee_id , employee_name:employee_name},
+   success:function(data){
+    if(data==='loi'){
+      alert("lỗi");
+    }
+    else{
+       location.reload();
+     // $("#phieumuon").reload();
+    }
+   
+   },
+   error:function(){
+    alert("loi");
+   }
+  });
+  // alert( employee_id);
+  // alert( employee_name);
+ 
  });
 
  

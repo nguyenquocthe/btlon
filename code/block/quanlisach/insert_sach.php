@@ -19,5 +19,8 @@ if(!empty($_POST))
      VALUES('$id_sach','$name', '$loaisach', '$tacgia', '$hanh', '$mota','$gia','$sl','$slc')
     ";
     $qr=mysqli_query($conn,$query);
+    if(!$qr){
+        echo('lol');
+    };
 }
 ?>
