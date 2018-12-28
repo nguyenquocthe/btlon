@@ -13,7 +13,10 @@ if(isset($_POST["employee_id"]))
     while($row = mysqli_fetch_array($result))
     {
      $output .= '
-  
+          <tr>  
+            <td width="30%"><label>Ảnh</label></td>  
+            <td width="70%"><img style="padding-left:80px;height:200px;width:250px" src="../img/'.$row["urlhinh"].'" ></td>  
+        </tr>
         
      <tr>  
             <td width="30%"><label>Tên Sách</label></td>  

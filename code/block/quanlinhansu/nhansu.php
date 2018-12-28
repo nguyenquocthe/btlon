@@ -7,7 +7,7 @@
    <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
      <script type="text/javascript" src="../style/jquery-3.3.1.js"></script>
      <script type="text/javascript" src="../style/bootstrap.min.js"></script>
-     <!-- <script type="text/javascript" src="nhansu.js"></script> -->
+     <script type="text/javascript" src="nhansu.js"></script>
 
 </head>
 <body style="background-color: #e6f9ff ; width: 100% ;height: 100%">
@@ -53,7 +53,7 @@
 
 <div class="noidung" id="noidung">
 	
-<button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-primary" style="margin: 10px 0px 0px 40px;">THêm</button> 
+<button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-primary" style="margin: 10px 0px 0px 40px;"><i class="fa fa-plus-circle" style="font-size:16px ; margin-right: 3px"></i>THêm</button> 
 <br> 
 <?php
 include("../config.php"); 
@@ -75,6 +75,7 @@ $resualt=mysqli_query($conn,$sql);
 
 while ($row=mysqli_fetch_array($resualt)) {
 ?>
+
                 <div class="khunganh " >
                     <div style="height:200px; margin-top:0px "; class="view_data" id="<?php echo $row["manv"]; ?>">
                         <img src="../img/<?php echo $row['urlhinh'] ?>" style=" margin-left:60px;width:120px;height: 110px;  margin-top: 10px; border-radius: 90%" / >
@@ -161,11 +162,11 @@ while ($row=mysqli_fetch_array($resualt)) {
       <input type="te" name="gmail" id="gmail" class="form-control"></input>
      <br />
      <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
-
+ <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
     </form>
    </div>
    <div>
-    <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
+   
    </div>
   </div>
  </div>
@@ -196,7 +197,7 @@ while ($row=mysqli_fetch_array($resualt)) {
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Employee Details</h4>
+    <h4 class="modal-title">Thông Tin NHân Sự</h4>
    </div>
    <div class="modal-body" id="employee_detail">
     

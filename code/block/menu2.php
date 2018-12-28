@@ -80,6 +80,7 @@ li.dropdown12 {
     </div>
   </li>
     <li><a href="http://localhost:8080/phech/code/block/thongke/thongke.php">Thống Kê</a></li>
+        <li><a href="http://localhost:8080/phech/code/block/hoidap/hoidap.php">Hỏi Đáp</a></li>
 </ul>
 </div>
 

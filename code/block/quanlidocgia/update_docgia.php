@@ -26,16 +26,16 @@ if(isset($_POST["employee_id"]))
       <input type="text" name="gioitinh" id="gioitinh" class="form-control"  value="<?php echo $row['gioitinh'] ?>" ></input>
       <br />
        <label>Hạn Sử Dụng</label>
-      <input type="te" name="hsd" id="hsd" class="form-control"  value="<?php echo $row['hansudung'] ?>" ></input>
+      <input type="date" name="hsd" id="hsd" class="form-control"  value="<?php echo $row['hansudung'] ?>" ></input>
       <br />
        <label>Hình Ảnh</label>
-      <input type="te" name="hinh" id="hinh" class="form-control"  value="<?php echo $row['urlhinh'] ?>" ></input>
+      <input type="text" name="hinh" id="hinh" class="form-control"  value="<?php echo $row['urlhinh'] ?>" ></input>
       <br>
             <label>gmail</label>
-      <input type="te" name="gmail" id="gmail" class="form-control"  value="<?php echo $row['gmail'] ?>" ></input>
+      <input type="text" name="gmail" id="gmail" class="form-control"  value="<?php echo $row['gmail'] ?>" ></input>
      <br />
      <label>SDT</label>
-      <input type="te" name="sdt" id="sdt" class="form-control"  value="<?php echo $row['sdt'] ?>" ></input>  
+      <input type="number" name="sdt" id="sdt" class="form-control"  value="<?php echo $row['sdt'] ?>" ></input>  
      <br />    
       <input type="submit" name="submit" value="update" style="padding: 5px;">
           

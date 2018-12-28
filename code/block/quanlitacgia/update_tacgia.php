@@ -21,7 +21,7 @@ if(isset($_POST["employee_id"]))
         <br>
         <br>
       <label>Số ĐT</label>
-      <input type="text" name="sdt" id="sdt" class="form-control"  value="<?php echo $row['sdt'] ?>" ></input>
+      <input type="number" name="sdt" id="sdt" class="form-control"  value="<?php echo $row['sdt'] ?>" ></input>
       <br>
       <input type="submit" name="submit" value="update" style="padding: 5px;">
           

@@ -24,9 +24,11 @@ else{
 <html>  
  <head>  
   <title>Tac gia</title>  
+    <link rel="stylesheet" type="text/css" href="../block/style/glyphicons-halflings-regular.woff2">
   <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
      <script type="text/javascript" src="../style/jquery-3.3.1.js"></script>
      <script type="text/javascript" src="../style/bootstrap.min.js"></script>
+     <script type="text/javascript" src="tacgia.js"></script>
   
   </style>
  </head>  
@@ -39,7 +41,7 @@ else{
    <div class="table-responsive" >
     <div style="float: left ; margin-bottom: 10px">
       
-     <button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning" style="padding: 10px; background-color: blue; width: 70px ">Add</button> 
+     <button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning" style="padding: 10px; background-color: blue; width: 70px "> <i class="fa fa-plus-circle" style="font-size:16px ; margin-right: 3px"></i>Add</button> 
 
      <input style="float: right;width: 300px; margin-left: 800px" class="form-control" id="myInput" type="text" placeholder="Search.."> 
     
@@ -111,9 +113,9 @@ else{
  <div class="modal-dialog" >
   <div class="modal-content"  >
    <div class="modal-header">
-     <h4 >Thêm Tác Giả</h4>
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
    
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <h4 style="color: blue">Thêm Tác Giả</h4>
    </div>
    <div class="modal-body">
     <form method="post" id="insert_form">
@@ -131,15 +133,15 @@ else{
         <br>
         <br>
       <label>Số Điện Thoại</label>
-      <input type="text" name="sdt" id="sdt" class="form-control"></input>   
+      <input type="number" name="sdt" id="sdt" class="form-control"></input>   
      <br />
      <br />
      <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
-
+        <button type="button" class="btn btn-default" data-dismiss="modal" style="float :right ;margin-right: 30px">Close</button>
     </form>
    </div>
    <div>
-    <button type="button" class="btn btn-default" data-dismiss="modal" style="float :right ; margin-top: -60px;margin-right: 30px">Close</button>
+ 
    </div>
   </div>
  </div>
@@ -149,7 +151,7 @@ else{
  <div class="modal-dialog">
   <div class="modal-content">
    <div class="modal-header">
-    <h4 class="modal-title">Update Tác Giả</h4>
+    <h4 class="modal-title" style="color:blue">Chi Tiết Tác Giả</h4>
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     
    </div>
@@ -168,7 +170,7 @@ else{
  <div class="modal-dialog">
   <div class="modal-content">
    <div class="modal-header">
-        <h4 class="modal-title">Sửa Tác giả </h4>
+        <h4 class="modal-title" style="color:blue" >Sửa Tác giả </h4>
     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
    </div>
@@ -205,96 +207,3 @@ else{
     </div>
   </div>
 
-<script>  
-$(document).ready(function(){
-    $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-
- $('#insert_form').on("submit", function(event){  
-  event.preventDefault();  
-  if($('#name').val() == "")  
-  {  
-   alert("Name is required");  
-  }  
-  else if($('#address').val() == '')  
-  {
-
-   alert("Address is required");  
-  }  
-  else if($('#designation').val() == '')
-  {  
-   alert("Designation is required");  
-  }
-   
-  else  
-  {  
-   $.ajax({  
-    url:"insert_tacgia.php",  
-    method:"POST",  
-    data:$('#insert_form').serialize(),  
-    // beforeSend:function(){  
-    //  $('#insert').val("Inserting");  
-    // },  
-    success:function(data){  
-    // $('#insert_form')[0].reset();  
-     $('#add_data_Modal').modal('hide');  
-     $('#employee_table').html(data); 
-     //$('#abc').load("dssach.php") ;
-     location.reload();
-    }  
-   });  
-  }  
- });
-
- $(document).on('click', '.view_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"select_tacgia.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail').html(data);
-    $('#dataModal').modal('show');
-   }
-  });
- });
-
-
-  $(document).on('click', '.update_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"update_tacgia.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail_sua').html(data);
-    $('#dataModal_sua').modal('show');
-   }
-  });
- });
-
-
-
-
-  $(document).on('click', '.delete_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"delete_tacgia.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    location.reload();
-   }
-  });
- });
-
- 
-});  
- </script>

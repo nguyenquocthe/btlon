@@ -10,10 +10,10 @@ if(isset($_POST['login'])){
     if($num>0){
     	$row=mysqli_fetch_array($result);
 			  
-	    $_SESSION['dangnhap']=$user;
+	    //$_SESSION['dangnhap']=$user;
 		//session_start();
 		 header('location:index.php'); 
-		$_SESSION['quyen_truy_cap'] = $row[quyentruycap];			
+		//$_SESSION['quyen_truy_cap'] = $row[quyentruycap];			
     }
     else{
     	echo"SAI";

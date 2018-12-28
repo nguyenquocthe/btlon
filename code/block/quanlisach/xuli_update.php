@@ -18,7 +18,7 @@ if($result){
 	header("location:dssach.php");
 }
 else{
-	die("câu lệnh bị lỗi");
+	echo "loi";
 }
 ?>
 

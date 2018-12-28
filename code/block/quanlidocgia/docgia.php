@@ -7,6 +7,7 @@
    <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
      <script type="text/javascript" src="../style/jquery-3.3.1.js"></script>
      <script type="text/javascript" src="../style/bootstrap.min.js"></script>
+     <script type="text/javascript" src="docgia.js"></script>
      <!-- <script type="text/javascript" src="nhansu.js"></script> -->
 
 </head>
@@ -35,7 +36,7 @@ else{
 
 <div class="docgia" id="noidung">
   
-<button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-primary" style="margin: 10px 0px 0px 40px;">THêm</button> 
+<button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-primary" style="margin: 10px 0px 0px 40px;"><i class="fa fa-plus-circle" style="font-size:16px ; margin-right: 3px"></i>THêm</button> 
 <br> 
 <?php
 include("../config.php"); 
@@ -127,17 +128,17 @@ while ($row=mysqli_fetch_array($resualt)) {
       <input type="text" name="gioitinh" id="gioitinh" class="form-control"></input>
      <br />
         <label>Hạn Sử Dụng </label>
-      <input type="te" name="hsd" id="hsd" class="form-control"></input>
+      <input type="date" name="hsd" id="hsd" class="form-control"></input>
      <br />
      <label>urlhinh</label>
-      <input type="te" name="hinh" id="hinh" class="form-control"></input>
+      <input type="text" name="hinh" id="hinh" class="form-control"></input>
      
      <br />
          <label>Gamil </label>
-      <input type="te" name="gmail" id="gmail" class="form-control"></input>
+      <input type="text" name="gmail" id="gmail" class="form-control"></input>
      <br />
      <label>SDT</label>
-      <input type="te" name="sdt" id="sdt" class="form-control"></input>
+      <input type="number" name="sdt" id="sdt" class="form-control"></input>
      <br />   
      <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
             <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
@@ -187,127 +188,7 @@ while ($row=mysqli_fetch_array($resualt)) {
   </div>
  </div>
 </div>
-<script type="text/javascript">
 
-$(document).ready(function(){
-
- $('#insert_form').on("submit", function(event){  
-  event.preventDefault();  
-  
-   if($('#madg').val() == "")  
-  {  
-   alert("Mã không đk để trống");  
-  }  
- 
-  else if($('#name').val() == '')
-  {  
-   alert("Tên k đk để trống");  
-  }
-  else if($('#diachi').val() == '')  
-  {
-
-   alert("Địa Chỉ Không đk để trống");  
-  }  
-  else if($('#ngaysinh').val() == '')
-  {  
-   alert("Ngày sinh k đk để trống");  
-  }
-  else if($('#gioitinh').val() == '')
-  {  
-   alert("Giới Tính Không đk trống");  
-  }
-  else if($('#sdt').val() == '')  
-  {
-   alert("sdt khong dk để trống");  
-  }  
-  else if($('#hinh').val() == '')
-  {  
-   alert("hinh k đk để trống ");  
-  }
- 
-  else if($('#gmail').val() == '')
-  {  
-   alert("gmail k đk để trống ");  
-  }
-  else  
-  {  
-   $.ajax({  
-    url:"insert_docgia.php",  
-    method:"POST",  
-    data:$('#insert_form').serialize(),  
-    success:function(data){  
-
-    $('#insert_form')[0].reset();  
-    $('#noidung').html(data); 
-     $('#add_data_Modal').modal('hide');  
-    
-    
-     //$('#abc').load("dssach.php") ;
-     location.reload();
-    } 
-   
-   
-   });  
-
-
-  }  
- });
-
-
- $(document).on('click', '.delete_data', function(){
-
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"delete_docgia.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){ 
-    location.reload();
-
-   }
-  });
-
- 
- });
-
-
-  $(document).on('click', '.update_data', function(){
- 
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"update_docgia.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail_sua').html(data);
-    $('#dataModal_sua').modal('show');
-   },
-  
-  });
-
- });
-
- $(document).on('click', '.view_data', function(){
-
-  var employee_id = $(this).attr("id");
-
-  $.ajax({
-   url:"select _docgia.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail').html(data);
-    $('#dataModal').modal('show');
-   }
-  });
-
-
- });
-
-
- 
-});  
-</script>
 
 </body>
 

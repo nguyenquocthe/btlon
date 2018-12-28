@@ -24,9 +24,11 @@ else{
 <html>  
  <head>  
   <title>Sach</title> 
+   <link rel="stylesheet" type="text/css" href="../block/style/glyphicons-halflings-regular.woff2">
  <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
      <script type="text/javascript" src="../style/jquery-3.3.1.js"></script>
      <script type="text/javascript" src="../style/bootstrap.min.js"></script>
+     <script type="text/javascript" src="sach.js"></script>
   
   </style>
  </head>  
@@ -39,7 +41,7 @@ else{
    <div class="table-responsive" >
     <div style="float: left ; margin-bottom: 10px">
       
-     <button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Add</button> 
+     <button type="button" name="age" id="age" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning"><i class="fa fa-plus-circle" style="font-size:16px ; margin-right: 3px"></i>Add</button> 
 
      <input style="float: right;width: 300px; margin-left: 800px" class="form-control" id="myInput" type="text" placeholder="Search.."> 
     
@@ -49,6 +51,7 @@ else{
      <table class="table table-bordered">
       <tr>
        <th >STT</th>  
+       <th>id_sach</th>
        <th >Tên Sách</th>
         <th >loai sach</th>  
        <th >Tác Giả</th>
@@ -70,6 +73,7 @@ else{
       ?>
       <tr>
        <td><?php echo $stt ?></td>
+       <td><?php echo $row['id_sach']; ?></td>
        <td><?php echo $row['tensach'] ?></td>
        <td><?php echo $row['id_loaisach'] ?></td>
         <td><?php echo $row['id_tacgia'] ?></td>
@@ -113,8 +117,9 @@ else{
  <div class="modal-dialog" >
   <div class="modal-content" >
    <div class="modal-header">
-    <h4 >Thêm Sách</h4>
+  
     <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h2 style="color: blue" >Thêm Sách</h2>
     
    </div>
    <div class="modal-body">
@@ -126,10 +131,32 @@ else{
      <input type="text" name="name" id="name" class="form-control" />
      <br />
      <label>id_loaisach</label>
-     <input type="text" name="loaisach" id="loaisach" class="form-control"></intput>
+      <select class=" form-control" name="loaisach" id="loaisach">
+       <option>Chọn Mã ls...</option>
+       <?php
+          $sql="select *from loaisach";
+          $kq=mysqli_query($conn,$sql);
+          while ($row=mysqli_fetch_array($kq)) {
+          ?>
+          <option><?php echo $row['id_loaisach']; ?></option>
+          <?php
+          }
+       ?>
+     </select>
      <br />
      <label>id_tacgia</label>
-      <input type="text" name="tacgia" id="tacgia" class="form-control"></input>
+       <select class=" form-control" name="tacgia" id="tacgia">
+       <option>Chọn Mã tg...</option>
+       <?php
+          $sql="select *from tacgia";
+          $kq=mysqli_query($conn,$sql);
+          while ($row=mysqli_fetch_array($kq)) {
+          ?>
+          <option><?php echo $row['id_tacgia']; ?></option>
+          <?php
+          }
+       ?>
+     </select>
         <br>
         <br>
       <label>hinhanh</label>
@@ -139,14 +166,14 @@ else{
       <input type="te" name="mota" id="mota" class="form-control"></input>
      <br />
        <label>giá</label>
-      <input type="te" name="gia" id="gia" class="form-control"></input>
+      <input type="number" name="gia" id="gia" class="form-control"></input>
      
      <br />
          <label>số lượng</label>
-      <input type="te" name="soluong" id="soluong" class="form-control"></input>
+      <input type="number" name="soluong" id="soluong" class="form-control"></input>
      <br />
          <label>số lượng còn </label>
-      <input type="te" name="soluongcon" id="soluongcon" class="form-control"></input>
+      <input type="number" name="soluongcon" id="soluongcon" class="form-control"></input>
      <br />
      <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
  <button type="button" class="btn btn-default" data-dismiss="modal" style="float: right;margin-right: 20px;">Close</button>
@@ -164,7 +191,7 @@ else{
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Employee Details</h4>
+    <h4 class="modal-title"  style="color: blue" >CHi Tiết Sách</h4>
    </div>
    <div class="modal-body" id="employee_detail">
     
@@ -182,7 +209,7 @@ else{
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Employee Details</h4>
+    <h4 class="modal-title" style="color: blue">Sửa Thống Tin Sách</h4>
    </div>
    <div class="modal-body" id="employee_detail_sua">
     
@@ -217,107 +244,3 @@ else{
     </div>
   </div>
 
-<script>  
-$(document).ready(function(){
-    $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-
- $('#insert_form').on("submit", function(event){  
-  event.preventDefault();  
-  if($('#name').val() == "")  
-  {  
-   alert("Name is required");  
-  }  
-  else if($('#address').val() == '')  
-  {
-
-   alert("Address is required");  
-  }  
-  else if($('#designation').val() == '')
-  {  
-   alert("Designation is required");  
-  }
-   
-  else  
-  {  
-   $.ajax({  
-    url:"insert_sach.php",  
-    method:"POST",  
-    data:$('#insert_form').serialize(),  
-    // beforeSend:function(){  
-    //  $('#insert').val("Inserting");  
-    // },  
-    success:function(data){  
-    // $('#insert_form')[0].reset();
-     if(data==='lol'){
-      alert("Loi");
-     }  
-     else{
-        $('#add_data_Modal').modal('hide');  
-     $('#employee_table').html(data);
-     location.reload();
-     }
-    
-
-     //$('#abc').load("dssach.php") ;
-    }  
-   });  
-  }  
- });
-
- $(document).on('click', '.view_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"select_sach.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail').html(data);
-    $('#dataModal').modal('show');
-   }
-  });
- });
-
-
-  $(document).on('click', '.update_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"update_data.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail_sua').html(data);
-    $('#dataModal_sua').modal('show');
-   },
-  
-   error: function(){
-    alert('error!');
-  }
-  });
- });
-
-
-
-
-  $(document).on('click', '.delete_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"delete_data.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    location.reload();
-   }
-  });
- });
-
- 
-});  
- </script>
