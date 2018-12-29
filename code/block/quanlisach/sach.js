@@ -83,16 +83,24 @@ $(document).ready(function(){
 
 
   $(document).on('click', '.delete_data', function(){
-  //$('#dataModal').modal();
+
   var employee_id = $(this).attr("id");
   $.ajax({
    url:"delete_data.php",
    method:"POST",
    data:{employee_id:employee_id},
    success:function(data){
+    if(data==='loi'){
+      alert("lỗi");
+    }
+    else{
     location.reload();
+    }
+
    }
   });
+
+
  });
 
  

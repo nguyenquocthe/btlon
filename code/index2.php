@@ -47,14 +47,18 @@
 			include("block2/bocuc/sachmoinhat.php")
 			?>
 		</div>
-		</div>
 		<div>
 			<?php 
 			include("block2/bocuc/footer.php")
 			?>
 		</div>
+
+		</div>
+
+	
  
 	</div>
+		
 
 </body>
 </html>

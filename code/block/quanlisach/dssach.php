@@ -11,7 +11,7 @@
 <?php  
 include("../config.php");
 // $connect = mysqli_connect("localhost", "root", "", "testing");
-$sotin1trang=3;
+$sotin1trang=10;
 if(isset($_GET['trang'])){
   $trang=$_GET['trang'];
 }
@@ -80,7 +80,7 @@ else{
          <td><?php echo $row['gia'] ?></td>
            <td><?php echo $row['soluong'] ?></td>
             <td><?php echo $row['soluongcon'] ?></td>
-       <td><input type="button" name="view" value="view" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data" /> <input type="button" name="delete" value="delete" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
+       <td><input type="button" name="view" value="view" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data" /> <input type="button" name="delete" value="delete" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs delete_data"  />
         <!-- <input type="button" name="update" value="update" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data'" /> -->
         <input type="button" name="view" value="update" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs update_data" />
       

@@ -10,7 +10,7 @@ if(!empty($_POST))
     $ttlm = $_POST["trangthai"];  
    
     $query = "
-    INSERT INTO chitietphieumuon (mapm,id_sach,ngaymuon,henngaytra,trangthailm)  
+    INSERT INTO chitietphieumuon (mapm,id_sach,ngaymuon,henngaytra,trangthailt)  
      VALUES('$mapm','$id_sach','$ngaymuon', '$henngaymuon', '$ttlm')
     ";
     $qr=mysqli_query($conn,$query);
@@ -51,7 +51,7 @@ if(!empty($_POST))
             <td><?php echo $rows['id_sach'] ?></td>
             <td><?php echo $rows['ngaymuon'] ?></td>
              <td><?php echo $rows['henngaytra'] ?></td>
-             <td><?php echo $rows['trangthailm'] ?></td>
+             <td><?php echo $rows['trangthailt'] ?></td>
            <!--  <td> <input type="button" name="<?php echo $rows['id_sach'] ?>" value="Xóa" id="<?php echo $mapm ?> " class="btn btn-info btn-xs delete_data_ctpm"  /></td> -->
             
             </tr>

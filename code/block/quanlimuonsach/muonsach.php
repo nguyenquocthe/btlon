@@ -71,7 +71,7 @@ else{
        <td><?php echo $row['madg'] ?></td>
         <td><?php echo $row['manv'] ?></td>
           
-       <td> <input type="button" name="delete" value="Xóa" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
+       <td> <input type="button" name="delete" value="Xóa" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs delete_data"  />
         <!-- <input type="button" name="update" value="update" id="<?php echo $row["id_sach"]; ?>" class="btn btn-info btn-xs view_data'" /> -->
         <input type="button" name="view" value="Sửa" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs update_data" />
         <input type="button" name="view" value="Xem Ctpm" id="<?php echo $row["mapm"]; ?>" class="btn btn-info btn-xs view_data" />

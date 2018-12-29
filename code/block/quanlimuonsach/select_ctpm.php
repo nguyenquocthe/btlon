@@ -20,7 +20,7 @@
                  <td><?php echo $row['id_sach']; ?></td>
                   <td><?php echo $row['ngaymuon']; ?></td>
                    <td><?php echo $row['henngaytra']; ?></td>
-                    <td><?php echo $row['trangthailm']; ?></td>
+                    <td><?php echo $row['trangthailt']; ?></td>
             </tr>
           <?php  
         }

@@ -76,15 +76,8 @@ li.dropdown12 {
     </div>
   </li>
    <li><a href="#" id="hoidap" class="hoidap">Hỏi Đáp</a></li>
-    <li class="dropdown12">
-    <a href="javascript:void(0)" class="dropbtn12">Quản Lí Mượn Trả Sách</a>
-    <div class="dropdown-content12">
-      <a href="">Danh Sách phiếu Mượn</a>
-      <a href="">Danh Sách Phiếu Trả</a>
-      <a href="">Danh Sách Phạt</a>
-    </div>
-  </li>
-    <li><a href="">Thống Kê</a></li>
+     
+    <li><a href="#" id="gioithieusach" class="gioithieusach">Giới Thiệu Sách</a></li>
 </ul>
 </div>
 
@@ -164,6 +157,22 @@ li.dropdown12 {
 
   $.ajax({
    url:"block2/hoidap/hoidap.php",
+   method:"POST",
+   success:function(data){
+
+    $('#conten').html(data); 
+   },
+   error: function(){
+    alert('error!');
+  }
+  });
+
+ });
+
+    $(document).on('click', '.gioithieusach', function(){
+
+  $.ajax({
+   url:"block2/gioithieusach/gioithieusach.php",
    method:"POST",
    success:function(data){
 
