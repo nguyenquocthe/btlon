@@ -13,7 +13,7 @@
 </style>
 </head>
 <body style="background-color:  #ccffff">
-	<div>
+	<div id="tonhat">
 		<div>
 			<?php
 			include("block2/bocuc/header.php");

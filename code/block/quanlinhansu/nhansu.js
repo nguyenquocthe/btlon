@@ -71,15 +71,16 @@ $(document).ready(function(){
 
   $(document).on('click', '.delete_data', function(){
   //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"delete_nhansu.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    location.reload();
-   }
-  });
+  // var employee_id = $(this).attr("id");
+  // $.ajax({
+  //  url:"delete_nhansu.php",
+  //  method:"POST",
+  //  data:{employee_id:employee_id},
+  //  success:function(data){
+  //   location.reload();
+  //  }
+  // });
+  alert("ok");
  });
 
   $(document).on('click', '.update_data', function(){

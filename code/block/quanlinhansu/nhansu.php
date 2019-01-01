@@ -102,7 +102,7 @@ while ($row=mysqli_fetch_array($resualt)) {
                             <i class="fa fa-phone"></i><?php echo $row['sdt']; ?>
                         </span>
                         <br>
-                            <input type="button" name="delete" value="delete" id="<?php echo $row["manv"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
+                            <input type="button" name="delete" value="delete" id="<?php echo $row["manv"]; ?>" class="btn btn-info btn-xs delete_data" />
                            <input type="button" name="view" value="update" id="<?php echo $row["manv"]; ?>" class="btn btn-info btn-xs update_data" />
                            <!-- <input type="button" name="view" value="view" id="<?php echo $row["manv"]; ?>" class="btn btn-info btn-xs view_data" /> -->
 
@@ -289,9 +289,17 @@ $(document).ready(function(){
    method:"POST",
    data:{employee_id:employee_id},
    success:function(data){
-    location.reload();
+    if(data==='loi'){
+      alert("lỗi");
+
+    }
+    else{
+       location.reload();
+    }
+   
    }
   });
+
  });
 
   $(document).on('click', '.update_data', function(){
