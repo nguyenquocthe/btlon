@@ -76,13 +76,13 @@ li.dropdown12 {
     <div class="dropdown-content12">
       <a href="http://localhost:8080/phech/code/block/quanlimuonsach/muonsach.php">Danh Sách phiếu Mượn</a>
       <a href="http://localhost:8080/phech/code/block/quanlitrasach/trasach.php">Danh Sách Phiếu Trả</a>
-      <a href="">Danh Sách Phạt</a>
+   
     </div>
   </li>
     <li><a href="http://localhost:8080/phech/code/block/thongke/thongke.php">Thống Kê</a></li>
         <li><a href="http://localhost:8080/phech/code/block/hoidap/hoidap.php">Hỏi Đáp</a></li>
         <li><a href="http://localhost:8080/phech/code/block/thongbao/thongbao.php">Thông Báo</a></li>
-             <li style="float: right;"><a href="http://localhost:8080/phech/code/login.php">Đăng Xuất</a></li>
+             <li style="float: right;"><a href="http://localhost:8080/phech/code/index2.php">Đăng Xuất</a></li>
                   <li style="float: right;"><a href="http://localhost:8080/phech/code/block/quanlitaikhoan/taikhoan.php">Tạo Tài KHoản </a></li>
 </ul>
 </div>

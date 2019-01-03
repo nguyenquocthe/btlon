@@ -75,6 +75,7 @@ else{
        <td><?php echo $row['password'] ?></td>
         <td><?php echo $row['quyen_try_cap'] ?></td>
        <td> <input type="button" name="delete" value="delete" id="<?php echo $row["id_user"]; ?>" class="btn btn-info btn-xs delete_taikhoan"  />
+            <input type="button" name="update" value="update" id="<?php echo $row["id_user"]; ?>" class="btn btn-info btn-xs update_taikhoan" />
          </td>
       </tr>
       <?php
@@ -139,9 +140,25 @@ else{
   </div>
  </div>
 </div>
-<div id="abc">
-  scbsdhf;
-</div>
+
+
+
+<div id="dataModal_sua" class="modal fade">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title" style="color: blue">Sửa Thống Tin Sách</h4>
+   </div>
+   <div class="modal-body" id="employee_detail_sua">
+    
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+   </div>
+  </div>
+ </div>
+</div> 
 
 
 <script type="text/javascript">
@@ -180,6 +197,29 @@ $(document).ready(function(){
 
 
  });
+
+
+
+  $(document).on('click', '.update_taikhoan', function(){
+  //$('#dataModal').modal();
+  var employee_id = $(this).attr("id");
+  $.ajax({
+   url:"update_taikhoan.php",
+   method:"POST",
+   data:{employee_id:employee_id},
+   success:function(data){
+
+    $('#employee_detail_sua').html(data);
+    $('#dataModal_sua').modal('show');
+   },
+  
+   error: function(){
+    alert('error!');
+  }
+  });
+
+ });
+
 
  
 });  

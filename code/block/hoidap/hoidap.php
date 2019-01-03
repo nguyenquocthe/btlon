@@ -28,6 +28,7 @@ else{
  <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
      <script type="text/javascript" src="../style/jquery-3.3.1.js"></script>
      <script type="text/javascript" src="../style/bootstrap.min.js"></script>
+     <script type="text/javascript" src="hoidap.js"></script>
     
   
   </style>
@@ -70,7 +71,7 @@ else{
        <td><?php echo $row['trangthai'] ?></td>
        <td><input type="button" name="traloi" value="tra loi" id="<?php echo $row["mach"]; ?>" class="btn btn-info btn-xs traloi" /> 
         <input type="button" name="chitiet" value="xem chi tiết" id="<?php echo $row["mach"]; ?>" class="btn btn-info btn-xs chitiet" /> 
-        <input type="button" name="delete" value="delete" id="<?php echo $row["mach"]; ?>" class="btn btn-info btn-xs delete_data"  data-toggle="modal" data-target="#myModal" />
+        <input type="button" name="delete" value="delete" id="<?php echo $row["mach"]; ?>" class="btn btn-info btn-xs delete_data"   />
          </td>
       </tr>
       <?php
@@ -160,82 +161,4 @@ else{
 
  </body>  
 
- <script type="text/javascript">
-   $(document).ready(function(){
-
-
-   $(document).on('click', '.traloi', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"traloi.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-
-    $('#employee_detail_sua').html(data);
-    $('#dataModal_sua').modal('show');
-   },
-  
-   error: function(){
-    alert('error!');
-  }
-  });
-
-
-});
-
-
-  $(document).on('click', '.chitiet', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"chitietcauhoi.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    $('#employee_detail').html(data);
-    $('#dataModal').modal('show');
-   },
-   error:function(){
-    alert("lỗi");
-   }
-  });
-  
-
- });
-
-
-  $(document).on('click', '.delete_data', function(){
-  //$('#dataModal').modal();
-  var employee_id = $(this).attr("id");
-  $.ajax({
-   url:"delete_cauhoi.php",
-   method:"POST",
-   data:{employee_id:employee_id},
-   success:function(data){
-    if(data==='loi'){
-      alert("lỗi");
-    }
-    else{
- location.reload();
-    }
-   
-   }
-  });
- });
-
-
-
-
-
-
-
-  });
-
-
-
-
-
- </script>
 </html>  

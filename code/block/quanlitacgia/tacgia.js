@@ -47,6 +47,7 @@ $(document).ready(function(){
      $('#add_data_Modal').modal('hide');  
      $('#employee_table').html(data); 
      //$('#abc').load("dssach.php") ;
+     alert("Thêm Thành Công");
      location.reload();
     }  
    });  
@@ -93,6 +94,7 @@ $(document).ready(function(){
    method:"POST",
    data:{employee_id:employee_id},
    success:function(data){
+    alert("Xóa Thàng Công ");
     location.reload();
    }
   });
