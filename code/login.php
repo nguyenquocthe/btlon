@@ -1,33 +1,4 @@
-<?php
-include "models/config.php";
-session_start();
-if(isset($_POST['login'])){
-    $user=$_POST['username'];
-    $pass=$_POST['password'];
-    $sql="select *from nguoidung where username='$user' and password='$pass'";
-    $result=mysqli_query($conn,$sql);
-     $num=mysqli_num_rows($result);
-    $row=mysqli_fetch_array($result);
-    $quyen=$row['quyen_try_cap'];
-    echo $num;
-    if($num>0){
-    	$row=mysqli_fetch_array($result);
-			  
-	    $_SESSION['dangnhap']=$user;
-		
-		
-		$_SESSION ['quyen_truy_cap'] = $quyen;
-		//echo $_SESSION ['quyen_truy_cap'];
-		 header('location:index.php'); 
-		
-	
-			
-    }
-    else{
-    	echo"SAI";
-    }
-}
-?>
+<!--  -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +13,7 @@ if(isset($_POST['login'])){
 	<div class="login">
 		<h1 >Đăng Nhập</h1>
      <div class="form">
-	<form action="#" method="post">
+	<form action="dangnhap.php" method="POST">
 		<label style="font-size: 30px;margin-right: 10px;">Tài KHoản</label>
 		<input placeholder="Tên Đăng Nhập" name="username" type="text" required>
 		<span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span>

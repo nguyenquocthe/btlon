@@ -2,11 +2,11 @@
 <html>
 <head>
   <title>nhan su</title>
-  <link rel="stylesheet" type="text/css" href="../style/nhansu.css">
-   <link rel="stylesheet" type="text/css" href="../style/glyphicons-halflings-regular.woff2">
-   <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-     <script type="text/javascript" src="../style/jquery-3.3.1.js"></script>
-     <script type="text/javascript" src="../style/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../style/nhansu.css">
+   <link rel="stylesheet" type="text/css" href="../../style/glyphicons-halflings-regular.woff2">
+   <link rel="stylesheet" type="text/css" href="../../style/bootstrap.min.css">
+     <script type="text/javascript" src="../../style/jquery-3.3.1.js"></script>
+     <script type="text/javascript" src="../../style/bootstrap.min.js"></script>
      <script type="text/javascript" src="docgia.js"></script>
      <!-- <script type="text/javascript" src="nhansu.js"></script> -->
 
@@ -21,7 +21,7 @@
 
   <?php
 
-  include("../menu2.php");
+  include("../../menu1.php");
   
  $sotin1trang=8;
 if(isset($_GET['trang'])){
@@ -45,7 +45,7 @@ else{
 <div id="ketqua">
 <br> 
 <?php
-include("../config.php"); 
+include("../../config.php"); 
  $form=($trang-1)*$sotin1trang;  
   $sql="select * from docgia order by madg LIMIT $form,$sotin1trang";
 $resualt=mysqli_query($conn,$sql);
@@ -54,7 +54,7 @@ while ($row=mysqli_fetch_array($resualt)) {
 ?>
                 <div class="khunganh " >
                     <div style="height:200px; margin-top:0px "; class="view_data" id="<?php echo $row["madg"]; ?>">
-                        <img src="../img/docgia/<?php echo $row['urlhinh'] ?>" style=" margin-left:60px;width:120px;height: 110px;  margin-top: 10px; border-radius: 90%" / >
+                        <img src="../../img/docgia/<?php echo $row['urlhinh'] ?>" style=" margin-left:60px;width:120px;height: 110px;  margin-top: 10px; border-radius: 90%" / >
                         <br>
                         <p style="text-align:center;font-size: 20px">
                             <strong><?php echo $row['hotendg'] ?></strong>

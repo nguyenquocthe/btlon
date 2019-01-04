@@ -62,26 +62,26 @@ li.dropdown12 {
   <li ><a href="#home"><i class="fa fa-fw fa-home"></i>Home</a></li>
   <li><a href="http://localhost:8080/phech/code/index.php">Trang Chủ</a></li>
 
-  <li><a href="http://localhost:8080/phech/code/block/quanlidocgia/docgia.php">Quản Lí Độc Giả</a></li>
+  <li><a href="http://localhost:8080/phech/code/block/nv/quanlidocgia/docgia.php">Quản Lí Độc Giả</a></li>
   <li class="dropdown12">
     <a href="javascript:void(0)" class="dropbtn12">Quản Lí Sách</a>
     <div class="dropdown-content12">
-      <a href="http://localhost:8080/phech/code/block/quanlisach/dssach.php">Danh Sách Sách</a>
-      <a href="http://localhost:8080/phech/code/block/quanlitacgia/dstacgia.php">Danh Sách Tác Giả</a>
-      <a href="http://localhost:8080/phech/code/block/quanliloaisach/dsloaisach.php">Danh Sách Thể Loại</a>
+      <a href="http://localhost:8080/phech/code/block/nv/quanlisach/dssach.php">Danh Sách Sách</a>
+      <a href="http://localhost:8080/phech/code/block/nv/quanlitacgia/dstacgia.php">Danh Sách Tác Giả</a>
+      <a href="http://localhost:8080/phech/code/block/nv/quanliloaisach/dsloaisach.php">Danh Sách Thể Loại</a>
     </div>
   </li>
     <li class="dropdown12">
     <a href="javascript:void(0)" class="dropbtn12">Quản Lí Mượn Trả Sách</a>
     <div class="dropdown-content12">
-      <a href="http://localhost:8080/phech/code/block/quanlimuonsach/muonsach.php">Danh Sách phiếu Mượn</a>
-      <a href="http://localhost:8080/phech/code/block/quanlitrasach/trasach.php">Danh Sách Phiếu Trả</a>
+      <a href="http://localhost:8080/phech/code/block/nv/quanlimuonsach/muonsach.php">Danh Sách phiếu Mượn</a>
+      <a href="http://localhost:8080/phech/code/block/nv/quanlitrasach/trasach.php">Danh Sách Phiếu Trả</a>
 
     </div>
   </li>
-    <li><a href="http://localhost:8080/phech/code/block/thongke/thongke.php">Thống Kê</a></li>
-        <li><a href="http://localhost:8080/phech/code/block/hoidap/hoidap.php">Hỏi Đáp</a></li>
-        <li><a href="http://localhost:8080/phech/code/block/thongbao/thongbao.php">Thông Báo</a></li>
+    <li><a href="http://localhost:8080/phech/code/block/nv/thongke/thongke.php">Thống Kê</a></li>
+        <li><a href="http://localhost:8080/phech/code/block/nv/hoidap/hoidap.php">Hỏi Đáp</a></li>
+        <li><a href="http://localhost:8080/phech/code/block/nv/thongbao/thongbao.php">Thông Báo</a></li>
              <li style="float: right;"><a href="http://localhost:8080/phech/code/index2.php">Đăng Xuất</a></li>
            
 </ul>
